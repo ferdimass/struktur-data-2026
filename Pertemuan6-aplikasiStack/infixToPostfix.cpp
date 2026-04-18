@@ -5,14 +5,10 @@
 using namespace std;
 
 int precedence(char op) {
-    if (op == '^')
-        return 3;
-    else if (op == '*' || op == '/')
-        return 2;
-    else if (op == '+' || op == '-')
-        return 1;
-    else
-        return 0;
+    if (op == '^') return 3;
+    else if (op == '*' || op == '/') return 2;
+    else if (op == '+' || op == '-') return 1;
+    else return 0;
 }
 
 bool isOperator(char c) {
@@ -26,19 +22,14 @@ string infixToPostfix(string infix) {
     for (int i = 0; i < infix.length(); i++) {
         char c = infix[i];
 
-        if (isalnum(c)) {
-            postfix += c;
-        }
-        else if (c == '(') {
-            st.push(c);
-        }
+        if (isalnum(c)) {postfix += c;}
+        else if (c == '(') {st.push(c);}
         else if (c == ')') {
             while (!st.empty() && st.top() != '(') {
                 postfix += st.top();
                 st.pop();
             }
-            if (!st.empty())
-                st.pop();
+            if (!st.empty()) st.pop();
         }
         else if (isOperator(c)) {
             while (!st.empty() && precedence(st.top()) >= precedence(c)) {

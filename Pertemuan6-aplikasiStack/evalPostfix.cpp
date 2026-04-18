@@ -8,9 +8,7 @@ int evaluatePostfix(string exp) {
 
     for (char c : exp) {
 
-        if (isdigit(c)) {
-            st.push(c - '0');
-        }
+        if (isdigit(c)) st.push(c - '0');
         else {
             int val2 = st.top(); st.pop();
             int val1 = st.top(); st.pop();

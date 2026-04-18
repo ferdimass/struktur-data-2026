@@ -9,7 +9,6 @@ int evaluatePostfix(string exp) {
     string token;
 
     while (ss >> token) {
-        // Jika operator
         if (token == "+" || token == "-" || token == "*" || token == "/") {
             int val2 = st.top(); st.pop();
             int val1 = st.top(); st.pop();
@@ -19,10 +18,7 @@ int evaluatePostfix(string exp) {
             else if (token == "*") st.push(val1 * val2);
             else if (token == "/") st.push(val1 / val2);
         }
-        // Jika operand
-        else {
-            st.push(stoi(token));
-        }
+        else {st.push(stoi(token));}
     }
 
     return st.top();
