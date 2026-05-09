@@ -22,8 +22,8 @@ string infixToPostfix(string infix) {
     for (int i = 0; i < infix.length(); i++) {
         char c = infix[i];
 
-        if (isalnum(c)) {postfix += c;}
-        else if (c == '(') {st.push(c);}
+        if (isalnum(c)) postfix += c;
+        else if (c == '(') st.push(c);
         else if (c == ')') {
             while (!st.empty() && st.top() != '(') {
                 postfix += st.top();
