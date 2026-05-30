@@ -38,10 +38,10 @@ public:
         if(node == NULL) return;
 
         for(int i = 0; i < level; i++) {
-            cout << "│ ";
+            cout << "| ";;
         }
 
-        if(level > 0) cout << "├── ";
+        if(level > 0) cout << "|-- ";
         cout << node->name << endl;
 
         for(Node* child : node->children) {
